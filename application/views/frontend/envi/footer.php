@@ -20,21 +20,21 @@
 </footer>
 
 <!-- Bootstrap JS -->
-<script src="<?=base_url()?>assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<?=base_url('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')?>"></script>
 
 <!-- Vendors -->
-<script src="<?=base_url()?>assets/vendor/tiny-slider/tiny-slider.js"></script>
-<script src="<?=base_url()?>assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
-<script src="<?=base_url()?>assets/vendor/choices/js/choices.min.js"></script>
-<script src="<?=base_url()?>assets/vendor/aos/aos.js"></script>
-<script src="<?=base_url()?>assets/vendor/glightbox/js/glightbox.js"></script>
-<script src="<?=base_url()?>assets/vendor/quill/js/quill.min.js"></script>
-<script src="<?=base_url()?>assets/vendor/stepper/js/bs-stepper.min.js"></script>
-<script src="<?=base_url()?>assets/vendor/flatpickr/js/flatpickr.min.js"></script>
-<script src="<?=base_url()?>assets/vendor/quill/js/quill.min.js"></script>
+<script src="<?=base_url('assets/vendor/tiny-slider/tiny-slider.js')?>"></script>
+<script src="<?=base_url('assets/vendor/purecounterjs/dist/purecounter_vanilla.js')?>"></script>
+<script src="<?=base_url('assets/vendor/choices/js/choices.min.js')?>"></script>
+<script src="<?=base_url('assets/vendor/aos/aos.js')?>"></script>
+<script src="<?=base_url('assets/vendor/glightbox/js/glightbox.js')?>"></script>
+<script src="<?=base_url('assets/vendor/quill/js/quill.min.js')?>"></script>
+<script src="<?=base_url('assets/vendor/stepper/js/bs-stepper.min.js')?>"></script>
+<script src="<?=base_url('assets/vendor/flatpickr/js/flatpickr.min.js')?>"></script>
+<script src="<?=base_url('assets/vendor/quill/js/quill.min.js')?>"></script>
 
 <!-- Template Functions -->
-<script src="<?=base_url()?>assets/js/functions.js"></script>
+<script src="<?=base_url('assets/js/functions.js')?>"></script>
 
 </body>
 </html>

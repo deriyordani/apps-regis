@@ -13,7 +13,7 @@
 
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="<?=base_url()?>assets/images/logo-poltekpel-banten.ico">
+	<link rel="shortcut icon" href="<?=base_url('assets/images/logo-poltekpel-banten.ico')?>">
 
 	<!-- Google Font -->
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -21,18 +21,18 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
 
 	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/font-awesome/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/bootstrap-icons/bootstrap-icons.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/choices/css/choices.min.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/aos/aos.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/glightbox/css/glightbox.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/quill/css/quill.snow.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/stepper/css/bs-stepper.min.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/tiny-slider/tiny-slider.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/flatpickr/css/flatpickr.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/font-awesome/css/all.min.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/bootstrap-icons/bootstrap-icons.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/choices/css/choices.min.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/aos/aos.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/glightbox/css/glightbox.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/quill/css/quill.snow.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/stepper/css/bs-stepper.min.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/tiny-slider/tiny-slider.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/vendor/flatpickr/css/flatpickr.min.css')?>">
 
 	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/style.css')?>">
 
 
 	<script src="<?=base_url('assets/js/jquery-3.3.1.min.js')?>"></script>
