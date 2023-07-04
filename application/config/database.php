@@ -6,10 +6,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost:3308',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'apps_reg_banten',
+	'hostname' => 'localhost',
+	'username' => 'regi_admin',
+	'password' => 'PoltekpelDb2023!123!',
+	'database' => 'regi_registration ',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
