@@ -3,115 +3,31 @@ Class Api extends CI_controller{
 	function __construct(){
 		parent::__construct();
 
-		//$this->load->library('BniEnc');
+		$this->load->library('BniEnc');
 
-		// $this->client_id = '77661';
-		// $this->secret_key = '9b5237d7fa3df84e0dd6e7fea052a613';
-		$this->url_create_va = 'https://registration.poltekpel-banten.ac.id/regis-api/api/VirtualAccount/create';
+		$this->client_id = '77661';
+		$this->secret_key = '9b5237d7fa3df84e0dd6e7fea052a613';
+		$this->url = 'https://apibeta.bni-ecollection.com/';
 
-		$this->load->library('curl');
-
-	}
-
-	function createva(){
-
-		$data = array(
-
-                'trx_id'			=> mt_rand(),
-		        'trx_amount'		=> 1000,
-		        'virtual_account'	=> 98877661200000019,
-		        'customer_name' 	=> 'Rinrin Kania Putri',
-		        'customer_email' 	=> 'test@test.com',
-		        'customer_phone' 	=> '085161088445'
-
-		);
-        
-        $insert =  $this->curl->simple_post($this->url_create_va, $data, array(CURLOPT_BUFFERSIZE => 10)); 
-
-
-        print_r($insert);
-
-
-
-		// $url = 'https://registration.poltekpel-banten.ac.id/regis-api/api/VirtualAccount/create';
-
-		// $data = array(
-		//         'trx_id'			=> mt_rand(),
-		//         'trx_amount'		=> 1000,
-		//         'va'				=> 98877661200000013,
-		//         'customer_name' 	=> 'Rinrin Kania Putri',
-		//         'customer_email' 	=> 'test@test.com',
-		//         'customer_phone' 	=> '085161088445'
-		// );
-
-		// $encodedData = json_encode($data);
-
-		// $curl = curl_init($url);
-		// $data_string = urlencode(json_encode($data));
-		// curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		// curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-		// curl_setopt( $curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-		// curl_setopt($curl, CURLOPT_POST, true);
-		// curl_setopt($curl, CURLOPT_POSTFIELDS, $encodedData);
-
-		// $result = curl_exec($curl);
-
-		// curl_close($curl);
-
-		
-		// $data = json_decode($result, true);
-
-		// var_dump($data);
-
-		// $postdata = http_build_query(
-		//     array(
-		//         'trx_id'			=> mt_rand(),
-		//         'trx_amount'		=> 1000,
-		//         'va'				=> 98877661200000012,
-		//         'customer_name' 	=> 'Rinrin Kania Putri',
-		//         'customer_email' 	=> 'test@test.com',
-		//         'customer_phone' 	=> '085161088445'
-		//     )
-		// );
-
-		// $opts = array('http' =>
-		//     array(
-		//         'method'  => 'POST',
-		//         'header'  => 'Content-Type: application/x-www-form-urlencoded',
-		//         'content' => $postdata
-		//     )
-		// );
-
-		// $context  = stream_context_create($opts);
-
-		// $result = file_get_contents('https://registration.poltekpel-banten.ac.id/regis-api/api/create_va', false, $context);
-		//var_dump(json_decode($result, true));
-		
 	}
 
 	function create_va(){
 	    
 	    date_default_timezone_set('Asia/Jakarta');
-
-        $trx_id 		= $this->input->post('trx_id');
-        $trx_amount		= $this->input->post('trx_amount');
-        $va 			= $this->input->post('va');
-        $cus_name 		= $this->input->post('customer_name');
-        $cus_email 		= $this->input->post('customer_email');
-        $cus_phone 		= $this->input->post('customer_phone');
-
+        $trx_id = mt_rand();
         
 		$data_asli = array(
-		    'type' 				=> "createBilling",
-			'client_id'		 	=> $this->client_id,
-			'trx_id' 			=> $trx_id, // fill with Billing ID
-			'trx_amount' 		=> $trx_amount,
-			'billing_type' 		=> 'c',
-			'datetime_expired' 	=> date('c', time() + 3 * 3600), // billing will be expired in 2 hours
-			'virtual_account' 	=> $va,
-			'customer_name' 	=> $cus_name,
-			'customer_email'	=> $cus_email,
-			'customer_phone' 	=> $cus_phone,
+		    'type' => "createBilling",
+			'client_id' => $this->client_id,
+			'trx_id' => $trx_id, // fill with Billing ID
+			//'trx_id' => 22122013,
+			'trx_amount' => 1000,
+			'billing_type' => 'c',
+			'datetime_expired' => date('c', time() + 2 * 3600), // billing will be expired in 2 hours
+			'virtual_account' => '988'.$this->client_id.'20000005',
+			'customer_name' => 'Mr. X',
+			'customer_email' => '',
+			'customer_phone' => '',
 		);
 
 		$hashed_string = BniEnc::encrypt(
@@ -122,7 +38,7 @@ Class Api extends CI_controller{
 
 		$data = array(
 			'client_id' => $this->client_id,
-			'data' 		=> $hashed_string
+			'data' => $hashed_string
 		);
 
 		$response = $this->get_content($this->url, json_encode($data));
@@ -133,10 +49,13 @@ Class Api extends CI_controller{
 			var_dump($response_json);
 		}
 		else {
-
 			$data_response = BniEnc::decrypt($response_json['data'], $this->client_id, $this->secret_key);
-			
-			return $data_response;
+			// $data_response will contains something like this: 
+			// array(
+			// 	'virtual_account' => 'xxxxx',
+			// 	'trx_id' => 'xxx',
+			// );
+			var_dump($data_response);
 		}
 
 	}
@@ -150,7 +69,7 @@ Class Api extends CI_controller{
 			'client_id' => $this->client_id,
 			'trx_id' => 139043906, // fill with Billing ID
 			//'trx_id' => 22122013,
-			'trx_amount' => 1000
+			//'trx_amount' => 1000
 			
 		);
 
@@ -181,7 +100,8 @@ Class Api extends CI_controller{
 			// );
 			
 			echo "<pre>";
-			var_dump($data_response);
+			print_r($data_response);
+			//print_r($data_response['va_status']);
 				echo "</pre>";
 		}
 
